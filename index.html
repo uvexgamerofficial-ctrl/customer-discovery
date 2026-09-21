@@ -1,0 +1,1685 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Apna Business Problem Bataiye — 2 Minute</title>
+<meta name="theme-color" content="#4f46e5">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#f7f8fc;--card:#ffffff;--ink:#0f172a;--ink2:#334155;--muted:#64748b;
+    --line:#e8ebf3;--brand:#4f46e5;--brand2:#6366f1;--brand-soft:#eef2ff;
+    --radius:24px;
+    --shadow-sm:0 1px 2px rgba(15,23,42,.04), 0 2px 8px rgba(15,23,42,.05);
+    --shadow-md:0 8px 30px rgba(15,23,42,.07), 0 2px 6px rgba(15,23,42,.04);
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;overflow-x:clip;}
+  html{-webkit-text-size-adjust:100%;}
+  body{
+    font-family:'Inter',system-ui,-apple-system,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;
+    color:var(--ink);
+    background:
+      radial-gradient(1100px 620px at 8% -12%, #eef2ff 0%, rgba(238,242,255,0) 62%),
+      radial-gradient(900px 520px at 102% -4%, #ecfeff 0%, rgba(236,254,255,0) 58%),
+      radial-gradient(700px 500px at 50% 110%, #f5f3ff 0%, rgba(245,243,255,0) 60%),
+      var(--bg);
+    background-attachment:fixed;
+    min-height:100vh;line-height:1.55;-webkit-font-smoothing:antialiased;
+  }
+  .shell{max-width:680px;margin:0 auto;padding:20px 18px 56px;}
+  .brandbar{display:flex;align-items:center;justify-content:space-between;padding:6px 2px 16px;}
+  .brand{display:flex;align-items:center;gap:10px;}
+  .brand-mark{width:34px;height:34px;border-radius:11px;background:linear-gradient(135deg,#6366f1,#4f46e5);color:#fff;font-weight:800;font-size:16px;display:grid;place-items:center;box-shadow:0 6px 16px rgba(79,70,229,.32);letter-spacing:-.5px;}
+  .brand-name{font-weight:700;font-size:15.5px;letter-spacing:-.2px;}
+  .brand-tag{font-size:11.5px;font-weight:600;color:var(--brand);background:var(--brand-soft);padding:5px 11px;border-radius:99px;border:1px solid #e0e5ff;}
+  .progress-wrap{position:sticky;top:0;z-index:30;padding:8px 0 12px;margin:0 -18px 4px;padding-left:18px;padding-right:18px;background:rgba(247,248,252,.82);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);transition:opacity .25s ease;}
+  .progress-info{display:flex;justify-content:space-between;align-items:center;font-size:12.5px;font-weight:700;color:var(--muted);margin-bottom:8px;letter-spacing:.1px;}
+  #stepLabel{color:var(--ink2);}
+  .progress-track{height:8px;background:#e9ecf5;border-radius:99px;overflow:hidden;box-shadow:inset 0 1px 2px rgba(15,23,42,.05);}
+  .progress-fill{height:100%;width:0%;background:linear-gradient(90deg,#6366f1,#8b5cf6);border-radius:99px;transition:width .5s cubic-bezier(.4,0,.2,1);}
+  .hidden{display:none !important;}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow-md);padding:26px 22px 22px;}
+  #screen{
+    will-change:opacity,transform;
+    backface-visibility:hidden;
+    -webkit-backface-visibility:hidden;
+    transform-origin:50% 50%;
+  }
+  .pill{display:inline-flex;align-items:center;gap:7px;font-size:12.5px;font-weight:700;color:var(--brand);background:var(--brand-soft);border:1px solid #e0e5ff;padding:6px 13px;border-radius:99px;margin-bottom:16px;}
+  h1{font-size:clamp(23px,6.2vw,30px);line-height:1.25;letter-spacing:-.7px;font-weight:800;margin:0 0 12px;color:var(--ink);}
+  .lead{font-size:15.5px;color:var(--muted);margin:0 0 24px;line-height:1.65;}
+  .trust{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px;}
+  .trust-item{font-size:12.5px;font-weight:600;color:var(--ink2);background:#f6f8fc;border:1px solid var(--line);padding:7px 12px;border-radius:99px;}
+  .resume{display:flex;flex-direction:column;gap:14px;background:linear-gradient(135deg,#eef2ff,#f5f3ff);border:1px solid #dfe4ff;border-radius:18px;padding:16px 16px 14px;margin-bottom:20px;}
+  .resume-text{display:flex;flex-direction:column;gap:2px;}
+  .resume-text strong{font-size:14.5px;font-weight:700;color:var(--ink);}
+  .resume-text span{font-size:13px;color:var(--muted);}
+  .resume-actions{display:flex;gap:9px;}
+  .resume-actions .btn{flex:1;}
+  .step-badge{display:inline-block;font-size:11.5px;font-weight:800;letter-spacing:.6px;text-transform:uppercase;color:#8b5cf6;background:#f5f3ff;border:1px solid #ece7ff;padding:5px 11px;border-radius:99px;margin-bottom:14px;}
+  .step-badge.q-badge{color:#0f6b48;background:#eefbf4;border-color:#c9f0dd;animation:badgeFade .35s ease;}
+  @keyframes badgeFade{from{opacity:0;transform:translateY(-4px);}to{opacity:1;transform:translateY(0);}}
+  .step-title{font-size:clamp(19px,5vw,23px);line-height:1.35;font-weight:750;letter-spacing:-.45px;margin:0 0 8px;color:var(--ink);}
+  .step-hint{font-size:13.5px;color:var(--muted);margin:0 0 20px;font-weight:500;}
+  .step-hint:last-child{margin-bottom:20px;}
+  .options{display:flex;flex-direction:column;gap:10px;margin-top:20px;}
+  .option{
+    width:100%;display:flex;align-items:center;gap:13px;
+    padding:15px 15px;border-radius:17px;border:1.5px solid var(--line);
+    background:#fff;text-align:left;cursor:pointer;font-family:inherit;color:var(--ink);
+    transition:border-color .18s ease,background .18s ease,transform .18s cubic-bezier(.4,0,.2,1),box-shadow .18s ease;
+    -webkit-tap-highlight-color:transparent;
+    transform-origin:center center;
+  }
+  .option:hover{
+    border-color:#c7d2fe;background:#fafbff;
+    transform:translateY(-1px) scale(1.012);
+    box-shadow:var(--shadow-sm);
+  }
+  .option:active{
+    transform:translateY(0) scale(.98);
+    transition-duration:.08s;
+  }
+  .option:focus-visible{outline:none;border-color:var(--brand);box-shadow:0 0 0 4px rgba(79,70,229,.16);}
+  .option.selected{border-color:var(--brand);background:var(--brand-soft);box-shadow:0 0 0 3px rgba(79,70,229,.10);}
+  .option-icon{width:44px;height:44px;flex:0 0 auto;border-radius:14px;background:#f1f5f9;display:grid;place-items:center;font-size:20px;transition:background .18s ease,transform .18s ease;}
+  .option.selected .option-icon{background:#fff;transform:scale(1.04);}
+  .option-text{flex:1;min-width:0;}
+  .option-label{display:block;font-size:15px;font-weight:600;letter-spacing:-.15px;line-height:1.4;}
+  .option-desc{display:block;font-size:12.5px;color:var(--muted);font-weight:500;margin-top:2px;}
+  .option-check{
+    width:23px;height:23px;flex:0 0 auto;border-radius:50%;
+    border:1.5px solid #d5dbe7;display:grid;place-items:center;
+    color:transparent;font-size:12px;font-weight:800;transition:all .18s ease;
+  }
+  .option.selected .option-check{
+    background:var(--brand);border-color:var(--brand);color:#fff;
+    animation:checkPop .34s cubic-bezier(.2,1.4,.5,1);
+  }
+  @keyframes checkPop{
+    0%{transform:scale(.5);}
+    60%{transform:scale(1.18);}
+    100%{transform:scale(1.05);}
+  }
+  .custom-wrap{overflow:hidden;max-height:0;opacity:0;visibility:hidden;transition:max-height .38s cubic-bezier(.4,0,.2,1),opacity .28s ease,visibility .38s;}
+  .custom-wrap.open{max-height:320px;opacity:1;visibility:visible;margin-top:12px;animation:customSlideIn .34s cubic-bezier(.4,0,.2,1);}
+  @keyframes customSlideIn{from{opacity:0;transform:translateY(-6px);}to{opacity:1;transform:translateY(0);}}
+  .input{width:100%;padding:14px 16px;border-radius:15px;border:1.5px solid var(--line);background:#fff;font-family:inherit;font-size:15px;color:var(--ink);transition:border-color .18s ease,box-shadow .18s ease,background .18s ease;-webkit-appearance:none;appearance:none;}
+  .input::placeholder{color:#a9b2c3;}
+  .input:hover{border-color:#d7dded;}
+  .input:focus{outline:none;border-color:var(--brand);box-shadow:0 0 0 4px rgba(79,70,229,.13);background:#fff;}
+  .textarea{width:100%;min-height:110px;padding:14px 16px;border-radius:15px;border:1.5px solid var(--line);background:#fff;font-family:inherit;font-size:15px;color:var(--ink);resize:vertical;transition:border-color .18s ease,box-shadow .18s ease,background .18s ease;-webkit-appearance:none;appearance:none;line-height:1.55;}
+  .textarea::placeholder{color:#a9b2c3;}
+  .textarea:focus{outline:none;border-color:var(--brand);box-shadow:0 0 0 4px rgba(79,70,229,.13);background:#fff;}
+  .form-grid{display:flex;flex-direction:column;gap:15px;margin-top:20px;}
+  .field{display:flex;flex-direction:column;gap:7px;}
+  .field label{font-size:13px;font-weight:650;color:var(--ink2);letter-spacing:.1px;}
+  .note{font-size:12.8px;color:var(--muted);background:#f8fafc;border:1px dashed #dfe5ef;border-radius:14px;padding:12px 14px;margin:18px 0 0;line-height:1.6;}
+  .nav{display:flex;gap:11px;margin-top:24px;}
+  .btn{font-family:inherit;font-size:15px;font-weight:700;letter-spacing:-.1px;border:none;border-radius:16px;padding:15px 20px;cursor:pointer;transition:transform .16s ease,box-shadow .2s ease,background .2s ease,color .2s ease,opacity .2s ease;-webkit-tap-highlight-color:transparent;display:inline-flex;align-items:center;justify-content:center;gap:8px;line-height:1.2;}
+  .btn:focus-visible{outline:none;box-shadow:0 0 0 4px rgba(79,70,229,.22);}
+  .btn-primary{flex:1;background:linear-gradient(135deg,#5f57ea,#4f46e5);color:#fff;box-shadow:0 10px 22px rgba(79,70,229,.26);}
+  .btn-primary:hover:not(:disabled){transform:translateY(-1.5px);box-shadow:0 14px 28px rgba(79,70,229,.33);}
+  .btn-primary:active:not(:disabled){transform:translateY(0);}
+  .btn-primary:disabled{background:#e4e8f1;color:#a2abbf;box-shadow:none;cursor:not-allowed;transform:none;}
+  .btn-ghost{flex:0 0 auto;background:#fff;color:var(--ink2);border:1.5px solid var(--line);padding:15px 20px;}
+  .btn-ghost:hover{background:#f8fafc;border-color:#d7dded;}
+  .btn-lg{width:100%;padding:18px 22px;font-size:16.5px;border-radius:17px;}
+  .btn-sm{padding:11px 16px;font-size:13.5px;border-radius:13px;}
+  .done-hero{text-align:center;padding:8px 0 4px;}
+  .done-emoji{font-size:44px;line-height:1;display:block;margin-bottom:14px;animation:pop .5s cubic-bezier(.2,1.4,.5,1);}
+  @keyframes pop{0%{transform:scale(.4);opacity:0;}100%{transform:scale(1);opacity:1;}}
+  .done-hero h2{font-size:clamp(22px,5.6vw,27px);font-weight:800;letter-spacing:-.6px;margin:0 0 10px;}
+  .done-hero p{font-size:14.5px;color:var(--muted);margin:0;line-height:1.65;}
+  .insight{display:flex;align-items:flex-start;gap:12px;border-radius:18px;padding:16px;margin:22px 0 4px;font-size:14px;font-weight:600;line-height:1.55;}
+  .insight .insight-icon{font-size:20px;line-height:1.2;flex:0 0 auto;}
+  .insight.high{background:linear-gradient(135deg,#eefbf4,#e8f8f1);border:1px solid #c9f0dd;color:#0f6b48;}
+  .insight.medium{background:linear-gradient(135deg,#eef4ff,#eef2ff);border:1px solid #d5e0ff;color:#33499c;}
+  .insight.low{background:linear-gradient(135deg,#f7f8fc,#f1f5f9);border:1px solid #e3e8f0;color:#475569;}
+  .section-title{font-size:12px;font-weight:800;letter-spacing:.8px;text-transform:uppercase;color:#94a0b6;margin:26px 0 8px;padding-left:2px;}
+  .summary{border:1px solid var(--line);border-radius:18px;background:#fcfdff;padding:4px 16px;}
+  .sum-row{display:flex;gap:12px;padding:13px 0;border-bottom:1px dashed #e6eaf3;align-items:flex-start;}
+  .sum-row:last-child{border-bottom:none;}
+  .sum-k{flex:0 0 40%;font-size:13px;font-weight:650;color:var(--muted);line-height:1.5;}
+  .sum-v{flex:1;font-size:14px;font-weight:650;color:var(--ink);line-height:1.5;word-break:break-word;}
+  .done-actions{display:flex;flex-direction:column;gap:11px;margin-top:26px;}
+  .loading-wrap{text-align:center;padding:32px 8px 12px;}
+  .spinner{width:52px;height:52px;border:4px solid #e9ecf5;border-top-color:var(--brand);border-radius:50%;animation:spin .85s linear infinite;margin:0 auto 22px;}
+  @keyframes spin{to{transform:rotate(360deg);}}
+  .loading-title{font-size:18px;font-weight:750;letter-spacing:-.3px;margin:0 0 8px;color:var(--ink);}
+  .loading-sub{font-size:14px;color:var(--muted);margin:0;line-height:1.6;}
+  .error-wrap{text-align:center;padding:8px 0 4px;}
+  .error-emoji{font-size:44px;line-height:1;display:block;margin-bottom:14px;animation:pop .5s cubic-bezier(.2,1.4,.5,1);}
+  .error-wrap h2{font-size:clamp(20px,5.2vw,25px);font-weight:800;letter-spacing:-.5px;margin:0 0 10px;color:var(--ink);}
+  .error-wrap p{font-size:14.5px;color:var(--muted);margin:0 0 8px;line-height:1.65;}
+  .error-note{display:inline-block;margin-top:14px;font-size:12.5px;font-weight:600;color:var(--ink2);background:#f8fafc;border:1px dashed #dfe5ef;border-radius:99px;padding:7px 14px;}
+  .hp-field{position:absolute !important;left:-9999px !important;top:-9999px !important;width:1px;height:1px;overflow:hidden;opacity:0;pointer-events:none;}
+  .toast{position:fixed;left:50%;bottom:26px;transform:translate(-50%,24px);background:#0f172a;color:#fff;padding:13px 22px;border-radius:15px;font-size:14px;font-weight:650;letter-spacing:-.1px;opacity:0;pointer-events:none;transition:opacity .3s cubic-bezier(.4,0,.2,1),transform .3s cubic-bezier(.4,0,.2,1);z-index:200;box-shadow:0 16px 40px rgba(15,23,42,.32);max-width:calc(100vw - 36px);text-align:center;}
+  .toast.show{opacity:1;transform:translate(-50%,0);}
+
+  /* ===== 3D question transition ===== */
+  #screen.exit-forward{animation:cardExitForward .28s cubic-bezier(.4,0,.6,1) forwards;}
+  #screen.exit-backward{animation:cardExitBackward .28s cubic-bezier(.4,0,.6,1) forwards;}
+  #screen.enter-forward{animation:cardEnterForward .48s cubic-bezier(.2,.9,.3,1) both;}
+  #screen.enter-backward{animation:cardEnterBackward .48s cubic-bezier(.2,.9,.3,1) both;}
+
+  @keyframes cardExitForward{
+    from{transform:perspective(1000px) rotateY(0deg) translateX(0) scale(1);opacity:1;}
+    to{transform:perspective(1000px) rotateY(-8deg) translateX(-18px) scale(.965);opacity:0;}
+  }
+  @keyframes cardExitBackward{
+    from{transform:perspective(1000px) rotateY(0deg) translateX(0) scale(1);opacity:1;}
+    to{transform:perspective(1000px) rotateY(8deg) translateX(18px) scale(.965);opacity:0;}
+  }
+  @keyframes cardEnterForward{
+    from{transform:perspective(1000px) rotateY(8deg) translateX(24px) scale(.965);opacity:0;}
+    to{transform:perspective(1000px) rotateY(0deg) translateX(0) scale(1);opacity:1;}
+  }
+  @keyframes cardEnterBackward{
+    from{transform:perspective(1000px) rotateY(-8deg) translateX(-24px) scale(.965);opacity:0;}
+    to{transform:perspective(1000px) rotateY(0deg) translateX(0) scale(1);opacity:1;}
+  }
+
+  @media (max-width:420px){
+    .shell{padding:16px 14px 48px;}
+    .card{padding:22px 17px 18px;border-radius:21px;}
+    .progress-wrap{margin-left:-14px;margin-right:-14px;padding-left:14px;padding-right:14px;}
+    .option{padding:14px 13px;gap:11px;}
+    .option-icon{width:40px;height:40px;font-size:18px;border-radius:12px;}
+    .option-label{font-size:14.3px;}
+    .sum-k{flex:0 0 44%;font-size:12.5px;}
+    .sum-v{font-size:13.5px;}
+  }
+  @media (min-width:640px){
+    .shell{padding-top:28px;}
+    .card{padding:32px 30px 26px;}
+    .done-actions{flex-direction:row;}
+    .done-actions .btn{flex:1;}
+  }
+  @media (prefers-reduced-motion:reduce){
+    *{animation-duration:.001ms !important;transition-duration:.001ms !important;}
+    .option:hover{transform:translateY(-1px);}
+    .option:active{transform:none !important;}
+  }
+</style>
+</head>
+<body>
+
+<div class="shell">
+  <header class="brandbar">
+    <div class="brand">
+      <div class="brand-mark">B</div>
+      <div class="brand-name">BizSaathi</div>
+    </div>
+    <div class="brand-tag">Sirf 2 minute</div>
+  </header>
+
+  <div class="progress-wrap hidden" id="progressWrap">
+    <div class="progress-info">
+      <span id="stepLabel">Step 1 of 13</span>
+      <span id="progressPct">8%</span>
+    </div>
+    <div class="progress-track">
+      <div class="progress-fill" id="progressFill"></div>
+    </div>
+  </div>
+
+  <main id="screen"></main>
+</div>
+
+<div class="hp-field" aria-hidden="true">
+  <label for="website_hp">Website</label>
+  <input type="text" id="website_hp" name="website_hp" tabindex="-1" autocomplete="off">
+</div>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+(function(){
+  'use strict';
+
+  /* =========================================================================
+     ⚙️  CONFIGURATION — PASTE YOUR GOOGLE APPS SCRIPT WEB APP URL BELOW
+     ========================================================================= */
+  var GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyVaPA-ERmxb3O9-Hk_n897r6VgkN136R6JaKpKPp7nOWfrnCRtJrckq4I8Y4iE2mIk/exec";
+
+  var STORAGE_KEY = 'bizsaathi_form_v3';
+  var CUSTOM = 'Other / Custom';
+  var TOTAL_QUESTIONS = 10;
+  var RANDOM_DISCOVERY_COUNT = 7;
+  var TOTAL_STEPS = 13;
+  var MIN_SUBMIT_GAP_MS = 5000;
+  var AUTO_ADVANCE_DELAY_MS = 320;
+  var EXIT_ANIM_MS = 280;
+  var ENTER_ANIM_MS = 480;
+
+  /* =========================================================================
+     FIXED CLOSING QUESTIONS
+     ========================================================================= */
+  var CLOSERS = [
+    {
+      id: 'close_solution_interest',
+      kind: 'closing',
+      t: 'Agar aapke business ka ye difficult part bina aapke normal kaam karne ke tareeke ko badle kaafi easy ho jaaye, to aise solution ko try karne mein aap kitne interested honge?',
+      ty: 'single',
+      signal: 'willingness',
+      scores: [30, 22, 12, 3],
+      opts: [
+        'Bilkul interested hoon',
+        'Haan, agar use karna simple ho',
+        'Shayad, pehle samajhna chahunga kaise kaam karta hai',
+        'Abhi nahi'
+      ]
+    },
+    {
+      id: 'close_early_tester',
+      kind: 'closing',
+      t: 'Agar hum aapki batayi hui problem ke around ek simple solution banayein, to kya aap ek early version dekhna ya test karna chahenge?',
+      ty: 'single',
+      signal: 'willingness',
+      scores: [30, 20, 10, 3],
+      opts: [
+        'Haan, zaroor try karna chahenge',
+        'Haan, jab ready ho tab dikhaiye',
+        'Shayad, depend karta hai kya karta hai',
+        'Nahi, abhi nahi'
+      ]
+    }
+  ];
+
+  /* =========================================================================
+     CATEGORY CONFIG
+     ========================================================================= */
+  var CATEGORY_CONFIG = {
+
+    'Coaching / Institute': {
+      opener: {
+        id:'coach_open', kind:'opener',
+        t:'Jab koi naya student ya parent aapke institute se admission ya course ki jaankari lene ke liye contact karta hai, us enquiry ko handle karne mein sabse zyada mehnat kis cheez mein lagti hai?',
+        ty:'single',
+        opts:[
+          'Sahi reply dene mein time lagta hai',
+          'Follow-up karna mushkil hota hai',
+          'Baar-baar same information deni padti hai',
+          'Enquiry ka record maintain karna mushkil hai',
+          'Sahi teacher / batch tak pahunchane mein dikkat',
+          'Kuch aur'
+        ]
+      },
+      discoveryPool: [
+        {id:'coach_02',t:'Din mein average kitni nayi enquiry aati hai?',ty:'single',signal:'frequency',scores:[30,22,15,8,3],opts:['20 se zyada','10-20','5-10','1-5','Kabhi-kabhi']},
+        {id:'coach_03',t:'Enquiry ka reply aap kitni der mein dete ho?',ty:'single',opts:['Turant (5 min)','1 ghante mein','Kuch ghante baad','Agle din','Kabhi reply nahi']},
+        {id:'coach_04',t:'Kya purani enquiries ka follow-up time par hota hai?',ty:'single',signal:'loss',scores:[30,18,10,0],opts:['Nahi, kaafi miss ho jaate hain','Kabhi-kabhi','Haan, mostly','Pata nahi']},
+        {id:'coach_05',t:'Enquiry ka record kahan maintain karte ho?',ty:'single',opts:['Notebook mein','WhatsApp par','Excel / Google Sheet','Yaad hi nahi rehta','Other']},
+        {id:'coach_06',t:'Parents se sabse zyada kya poocha jata hai?',ty:'multi',opts:['Fees','Batch timing','Course details','Teacher info','Demo class','Location']},
+        {id:'coach_07',t:'Fees ki information din mein kitni baar deni padti hai?',ty:'single',signal:'frequency',scores:[30,22,15,8,3],opts:['10+ baar','5-10 baar','2-5 baar','1-2 baar','Kabhi-kabhi']},
+        {id:'coach_08',t:'Demo class ke baad kitne students join karte hain?',ty:'single',opts:['Mostly join karte hain','Aadhe join karte hain','Kam log join karte hain','Pata nahi']},
+        {id:'coach_09',t:'Batch ki information dene mein kitna time lagta hai?',ty:'single',signal:'time',scores:[25,18,10,5],opts:['1 ghante se zyada','30-60 minute','15-30 minute','5-15 minute']},
+        {id:'coach_10',t:'Roz kitni calls miss hoti hain?',ty:'single',signal:'loss',scores:[28,20,12,5],opts:['Kaafi (5+ calls)','2-5 calls','1 call','Kabhi nahi']},
+        {id:'coach_11',t:'WhatsApp par roz kitne messages aate hain?',ty:'single',signal:'frequency',scores:[30,20,12,5],opts:['50+','20-50','5-20','1-5']},
+        {id:'coach_12',t:'Follow-up miss hone se kitne admission chale jaate hain?',ty:'single',signal:'loss',scores:[30,20,10,0],opts:['Kaafi saare','Kuch','Kam','Pata nahi']},
+        {id:'coach_13',t:'Attendance update parents ko kaise batate ho?',ty:'single',opts:['WhatsApp par','Call karke','Notes bhejte hain','Nahi batate','Other']},
+        {id:'coach_14',t:'Result ya progress report bhejne mein kitna time lagta hai?',ty:'single',signal:'time',scores:[25,18,10,5],opts:['1 ghante se zyada','30-60 minute','15-30 minute','5-15 minute']},
+        {id:'coach_15',t:'Teachers ke saath coordination mein kya dikkat aati hai?',ty:'single',opts:['Time par info nahi milti','Communication gap','Info bikhri rehti hai','Koi dikkat nahi','Other']},
+        {id:'coach_16',t:'Admission season mein sabse zyada struggle kis cheez mein hota hai?',ty:'single',opts:['Enquiries handle karna','Follow-up','Fee collection','Batch management','Staff coordination']},
+        {id:'coach_17',t:'Kaunse kaam rozana repeat hote hain?',ty:'multi',opts:['Same questions ka reply','Fees info','Batch timing info','Attendance update','Notice bhejna','Other']},
+        {id:'coach_18',t:'Purane students ke parents se contact kaise rakhte ho?',ty:'single',opts:['Regular WhatsApp updates','Kabhi kabhi','Festival messages','Contact nahi rakhte','Other']},
+        {id:'coach_19',t:'Notices ya announcements bhejne mein kitna time lagta hai?',ty:'single',signal:'time',scores:[25,15,8,3],opts:['Bahut zyada','30-60 minute','15-30 minute','Turant']},
+        {id:'coach_20',t:'Aapke hisaab se rozana sabse zyada time kahan barbaad hota hai?',ty:'longtext',ph:'Apni baat short mein likhiye...'},
+        {id:'coach_21',t:'Nayi enquiry aane par pehle kya karte ho?',ty:'single',opts:['Turant reply','Notes mein likhte ho','Baad mein dekhte ho','Bhool jaate ho']},
+        {id:'coach_22',t:'Kabhi kabhi enquiry ka reply dena bhool jaate ho?',ty:'single',signal:'loss',scores:[28,15,5,0],opts:['Haan, kaafi baar','Kabhi-kabhi','Rarely','Kabhi nahi']},
+        {id:'coach_23',t:'Fees reminder bhejne mein kitna time lagta hai?',ty:'single',signal:'time',scores:[22,15,8,3],opts:['1 ghante se zyada','30-60 minute','15-30 minute','Turant']},
+        {id:'coach_24',t:'Team mein kitne log enquiry handle karte hain?',ty:'single',opts:['Sirf main','1-2 log','3-5 log','Poori team']},
+        {id:'coach_25',t:'Agar ek cheez automatic ho jaaye to kya chunenge?',ty:'single',opts:['Enquiry reply','Follow-up','Fees reminder','Records','Report bhejna']},
+        {id:'coach_26',t:'Kaunsa kaam khud manually karte ho jo easy ho sakta hai?',ty:'longtext',ph:'Example: Roz WhatsApp par batch timing bhejna...'},
+        {id:'coach_27',t:'Kya aap enquiry se admission tak ka process simple maante ho?',ty:'single',opts:['Haan simple hai','Thoda complicated hai','Bahut complicated hai','Socha nahi kabhi']}
+      ],
+      closers: CLOSERS
+    },
+
+    'Shop / Local Business': {
+      opener: {
+        id:'shop_open', kind:'opener',
+        t:'Jab customer kuch kharidne se pehle aapki dukaan se contact karta hai, kaunse type ka sawaal ya request handle karna sabse zyada mehnat maangta hai?',
+        ty:'single',
+        opts:[
+          'Price aur offer batana',
+          'Stock ya availability check karna',
+          'Delivery ya pickup ki jaankari dena',
+          'Order lena aur details note karna',
+          'Complaints aur returns handle karna',
+          'Kuch aur'
+        ]
+      },
+      discoveryPool: [
+        {id:'shop_01',t:'Customers zyada tar kya poochte hain?',ty:'multi',opts:['Price','Stock availability','Delivery','Location','Offers / discount','Other']},
+        {id:'shop_02',t:'Product ka price roz kitni baar batana padta hai?',ty:'single',signal:'frequency',scores:[30,22,15,8,3],opts:['50+ baar','20-50 baar','10-20 baar','5-10 baar','Kam']},
+        {id:'shop_03',t:'WhatsApp par roz kitni enquiries aati hain?',ty:'single',signal:'frequency',scores:[30,22,15,8,3],opts:['50+','20-50','10-20','5-10','1-5']},
+        {id:'shop_04',t:'Missed calls ka kya karte ho?',ty:'single',opts:['Baad mein call back','WhatsApp karte hain','Bhool jaate hain','Ignore karte hain','Other']},
+        {id:'shop_05',t:'Kya customers ko stock availability batane mein time lagta hai?',ty:'single',signal:'time',scores:[25,18,10,5],opts:['Bahut lagta hai','Thoda lagta hai','Kam','Turant bata dete hain']},
+        {id:'shop_06',t:'Repeat customers ka record maintain karte ho?',ty:'single',opts:['Haan, achha record hai','Thoda bahut','Nahi','Socha nahi']},
+        {id:'shop_07',t:'Order details kahan likhte ho?',ty:'single',opts:['Notebook','WhatsApp chat','Excel / Google Sheet','Yaad hi rehta hai','Other']},
+        {id:'shop_08',t:'Delivery related kitne questions aate hain?',ty:'single',signal:'frequency',scores:[25,18,12,5],opts:['Bahut zyada','Kaafi','Kam','Rarely']},
+        {id:'shop_09',t:'Peak hours mein sabse zyada dikkat kya hoti hai?',ty:'single',opts:['Calls attend karna','Customer handling','Billing','Stock check','Other']},
+        {id:'shop_10',t:'Location ke baare mein kitne log poochte hain?',ty:'single',signal:'frequency',scores:[22,15,8,3],opts:['Roz kaafi','Kuch log','Kabhi kabhi','Rarely']},
+        {id:'shop_11',t:'Offers ya discounts ki information kaise bhejte ho?',ty:'single',opts:['WhatsApp broadcast','Status update','Call karke','Board lagate hain','Other']},
+        {id:'shop_12',t:'Customer complaints kaise handle karte ho?',ty:'single',opts:['Turant solve karte hain','Baad mein dekhte hain','Staff handle karta hai','Record nahi rakhte','Other']},
+        {id:'shop_13',t:'Nayi enquiry ka reply kitni der mein dete ho?',ty:'single',opts:['Turant','1 ghante mein','Kuch ghante baad','Agle din','Kabhi reply nahi']},
+        {id:'shop_14',t:'Follow-up karne mein din mein kitna time jata hai?',ty:'single',signal:'time',scores:[25,18,10,5],opts:['1 ghante se zyada','30-60 minute','15-30 minute','5-15 minute']},
+        {id:'shop_15',t:'Customer details kahan store karte ho?',ty:'single',opts:['Notebook','WhatsApp chat','Excel / Google Sheet','Yaad hi rehta hai','Other']},
+        {id:'shop_16',t:'Purane customers se kitne mahine baad contact karte ho?',ty:'single',opts:['Har mahine','3 mahine mein','6 mahine mein','Sirf tab jab wo aaye','Contact nahi karte']},
+        {id:'shop_17',t:'Sabse zyada kaunsa question repeat hota hai?',ty:'longtext',ph:'Jaise: Kya ye available hai? Rate kya hai?'},
+        {id:'shop_18',t:'Staff kitna busy rehta hai enquiry handle karne mein?',ty:'single',opts:['Poora din busy','Half day','Kam','Rarely']},
+        {id:'shop_19',t:'Kya kabhi customer chala jata hai late reply se?',ty:'single',signal:'loss',scores:[28,15,5,0],opts:['Haan, kaafi baar','Kabhi-kabhi','Rarely','Kabhi nahi']},
+        {id:'shop_20',t:'Sale ke time kitni calls attend nahi kar paate?',ty:'single',signal:'loss',scores:[28,18,10,3],opts:['Kaafi (5+ calls)','2-5 calls','1 call','Kabhi nahi']},
+        {id:'shop_21',t:'Kaunse kaam rozana repeat hote hain?',ty:'multi',opts:['Same price batana','Stock check','Order lena','Delivery info','Discount batana','Other']},
+        {id:'shop_22',t:'Naye customer ko attract karne ke liye kya karte ho?',ty:'single',opts:['Status update','WhatsApp broadcast','Instagram post','Offer lagate hain','Kuch nahi']},
+        {id:'shop_23',t:'Order tracking kaise karte ho?',ty:'single',opts:['Notebook','WhatsApp','Excel','App use karte hain','Yaad hi rehta hai']},
+        {id:'shop_24',t:'Customer ke saath communication kahan hoti hai zyada?',ty:'single',opts:['WhatsApp','Call','Instagram','Walk-in','Other']},
+        {id:'shop_25',t:'Regular customers ko kaise yaad rakhte ho?',ty:'single',opts:['Face yaad rehta hai','WhatsApp chat dekhte hain','Notebook','Kuch yaad nahi rehta']},
+        {id:'shop_26',t:'Roz kitna time enquiry handle karne mein jata hai?',ty:'single',signal:'time',scores:[25,18,10,5],opts:['1 ghante se zyada','30-60 minute','15-30 minute','5-15 minute']},
+        {id:'shop_27',t:'Kaunsa kaam manual karte ho jo easy ho sakta hai?',ty:'longtext',ph:'Example: Har customer ko rate batana...'}
+      ],
+      closers: CLOSERS
+    },
+
+    'Freelancer / Service Provider': {
+      opener: {
+        id:'free_open', kind:'opener',
+        t:'Jab koi naya client aapki service ke liye contact karta hai, us enquiry ko actual paid kaam mein convert karne mein sabse zyada dikkat kis cheez mein aati hai?',
+        ty:'single',
+        opts:[
+          'Client ko service samjhana',
+          'Quotation ya pricing discuss karna',
+          'Follow-up karna',
+          'Client ka trust aur interest banaye rakhna',
+          'Timing aur availability match karna',
+          'Kuch aur'
+        ]
+      },
+      discoveryPool: [
+        {id:'free_01',t:'Naye client enquiries kahan se aate hain?',ty:'multi',opts:['Referral','Instagram','WhatsApp','Website','Cold call','Other']},
+        {id:'free_02',t:'Ek hafte mein kitni enquiries aati hain?',ty:'single',signal:'frequency',scores:[30,20,12,5],opts:['10+','5-10','2-5','1-2','Kam']},
+        {id:'free_03',t:'Enquiry ka reply kitni der mein karte ho?',ty:'single',opts:['Turant','1 ghante mein','Kuch ghante baad','Agle din','Kabhi nahi']},
+        {id:'free_04',t:'Quotation bhejne mein kitna time lagta hai?',ty:'single',signal:'time',scores:[25,18,10,5],opts:['1 ghante se zyada','30-60 minute','15-30 minute','5-15 minute']},
+        {id:'free_05',t:'Follow-up karne mein kya dikkat aati hai?',ty:'single',opts:['Yaad nahi rehta','Time nahi milta','Client reply nahi karta','System nahi hai','Other']},
+        {id:'free_06',t:'Pricing ka sawal kitni baar aata hai?',ty:'single',signal:'frequency',scores:[22,15,8,3],opts:['Har enquiry par','Kaafi baar','Kabhi kabhi','Rarely']},
+        {id:'free_07',t:'Apni services explain karne mein kitna time jata hai?',ty:'single',signal:'time',scores:[22,15,8,3],opts:['Bahut zyada','Thoda','Kam','Turant bata dete hain']},
+        {id:'free_08',t:'Kya proposals manually banate ho?',ty:'single',opts:['Haan, har baar','Template hai','Client ke hisaab se modify','Bilkul nahi']},
+        {id:'free_09',t:'Appointment scheduling kaise karte ho?',ty:'single',opts:['WhatsApp par','Call par','Calendar app','Notebook','Other']},
+        {id:'free_10',t:'Client communication kahan hoti hai?',ty:'single',opts:['WhatsApp','Email','Call','Zoom / Meet','Other']},
+        {id:'free_11',t:'Kaunse leads follow-up miss ho jaate hain?',ty:'single',signal:'loss',scores:[28,20,12,4],opts:['Bahut saare','Kuch','Kam','Koi nahi']},
+        {id:'free_12',t:'Lead tracking kaise karte ho?',ty:'single',opts:['Notebook','Excel / Google Sheet','CRM app','Yaad hi rehta hai','Other']},
+        {id:'free_13',t:'Project status client ko kaise batate ho?',ty:'single',opts:['WhatsApp par','Call par','Email se','Weekly update','Nahi batate']},
+        {id:'free_14',t:'Payment reminders kaise bhejte ho?',ty:'single',opts:['WhatsApp par','Call karke','Email se','Yaad dilate hain','Nahi bhejte']},
+        {id:'free_15',t:'Repeat clients kitne percent hain?',ty:'single',opts:['Mostly repeat','Aadhe','Kam','Rarely']},
+        {id:'free_16',t:'Referrals kaise manage karte ho?',ty:'single',opts:['Thank you note bhejte hain','Discount dete hain','Kuch nahi karte','Record rakhte hain']},
+        {id:'free_17',t:'Multiple clients handle karte waqt kya problem hoti hai?',ty:'single',opts:['Yaad nahi rehta kaun kya maanga','Status track nahi hota','Payment delay','Communication gap','Other']},
+        {id:'free_18',t:'Admin kaam mein kitna time jata hai?',ty:'single',signal:'time',scores:[25,18,10,5],opts:['1 ghante se zyada','30-60 minute','15-30 minute','5-15 minute']},
+        {id:'free_19',t:'Repeat communication kitni hoti hai?',ty:'single',signal:'frequency',scores:[25,18,10,3],opts:['Bahut zyada','Kaafi','Thoda','Kam']},
+        {id:'free_20',t:'Client onboarding process kaisa hai?',ty:'single',opts:['Smooth hai','Thoda complicated','Bahut complicated','Structured nahi hai']},
+        {id:'free_21',t:'Kya kabhi enquiry miss hoti hai?',ty:'single',signal:'loss',scores:[28,15,5,0],opts:['Haan, kaafi baar','Kabhi kabhi','Rarely','Kabhi nahi']},
+        {id:'free_22',t:'Client ke saath meeting schedule karna easy hai?',ty:'single',opts:['Haan, easy','Thoda time lagta hai','Bahut mushkil','Back-forth hota hai']},
+        {id:'free_23',t:'Proposal ya quotation ka template hai?',ty:'single',opts:['Haan proper template','Adhura template','Nahi, har baar naya','Socha nahi']},
+        {id:'free_24',t:'Sabse zyada time kaunsa kaam leta hai?',ty:'longtext',ph:'Example: Quotation banana, follow-up, client calls...'},
+        {id:'free_25',t:'Kaunsa kaam khud manually karte ho?',ty:'longtext',ph:'Apna jawab likhiye...'},
+        {id:'free_26',t:'Payment follow-up mein kitna time jata hai?',ty:'single',signal:'time',scores:[22,15,8,3],opts:['Bahut zyada','Thoda','Kam','Turant']},
+        {id:'free_27',t:'Kitne leads ek mahine mein convert hote hain?',ty:'single',opts:['50%+','30-50%','10-30%','10% se kam']}
+      ],
+      closers: CLOSERS
+    },
+
+    'Creator': {
+      opener: {
+        id:'cre_open', kind:'opener',
+        t:'Jab different platforms se messages, collaboration requests ya business enquiries aati hain, unhe manage karne mein sabse zyada mushkil kis cheez mein hoti hai?',
+        ty:'single',
+        opts:[
+          'Saare messages ek jagah track karna',
+          'Important enquiries alag karna',
+          'Reply karne mein time lagna',
+          'Follow-up bhool jana',
+          'Rates aur details baar-baar batana',
+          'Kuch aur'
+        ]
+      },
+      discoveryPool: [
+        {id:'cre_01',t:'Aap kis platform par content banate ho?',ty:'multi',opts:['Instagram','YouTube','TikTok / Shorts','LinkedIn','Twitter / X','Other']},
+        {id:'cre_02',t:'Brand collaboration enquiries kahan se aati hain?',ty:'multi',opts:['Instagram DM','Email','Website form','Agency','Referral','Other']},
+        {id:'cre_03',t:'Din mein kitne DMs aate hain?',ty:'single',signal:'frequency',scores:[30,22,15,8,3],opts:['100+','50-100','20-50','5-20','1-5']},
+        {id:'cre_04',t:'Sponsorship enquiries ka reply kitni der mein dete ho?',ty:'single',opts:['Turant','1 ghante mein','Kuch ghante baad','Agle din','Kabhi nahi']},
+        {id:'cre_05',t:'Audience ke kaunse sawaal sabse zyada aate hain?',ty:'multi',opts:['Collab / paid promo','Personal questions','Tutorial requests','Feedback','Other']},
+        {id:'cre_06',t:'Brand deal ke liye rate card batana kitni baar padta hai?',ty:'single',signal:'frequency',scores:[25,18,10,3],opts:['Har enquiry par','Kaafi baar','Kabhi kabhi','Rarely']},
+        {id:'cre_07',t:'Collaboration proposal bhejne mein kitna time jata hai?',ty:'single',signal:'time',scores:[25,18,10,5],opts:['1 ghante se zyada','30-60 minute','15-30 minute','5-15 minute']},
+        {id:'cre_08',t:'Media kit ready hai?',ty:'single',opts:['Haan, professional','Basic hai','Nahi hai','Socha nahi']},
+        {id:'cre_09',t:'Collab follow-up mein kya dikkat aati hai?',ty:'single',opts:['Yaad nahi rehta','Brand reply nahi karta','Time nahi milta','System nahi hai','Other']},
+        {id:'cre_10',t:'Multiple platforms manage karna kitna mushkil hai?',ty:'single',opts:['Bahut mushkil','Thoda mushkil','Manage kar lete hain','Easy']},
+        {id:'cre_11',t:'Sabse zyada time kaunse kaam mein jata hai?',ty:'single',signal:'time',scores:[25,18,10,5],opts:['Replies dena','Content banana','Editing','Collab handle karna','Other']},
+        {id:'cre_12',t:'Kaunse messages miss ho jaate hain?',ty:'single',signal:'loss',scores:[28,18,10,3],opts:['Bahut saare','Kuch important','Rarely','Koi nahi']},
+        {id:'cre_13',t:'Collaboration requests ka record kahan rakhte ho?',ty:'single',opts:['Instagram DM','Email','Notes app','Excel / Sheet','Yaad hi rehta hai']},
+        {id:'cre_14',t:'Brand enquiries kitni convert hoti hain?',ty:'single',opts:['Mostly convert','Aadhi','Kam','Rarely']},
+        {id:'cre_15',t:'Content planning kaise karte ho?',ty:'single',opts:['Notion / app','Notebook','Yaad se','Random','Other']},
+        {id:'cre_16',t:'Reply karne mein din mein kitna time jata hai?',ty:'single',signal:'time',scores:[25,18,10,5],opts:['2 ghante se zyada','1-2 ghante','30-60 minute','15-30 minute']},
+        {id:'cre_17',t:'Kaunse sawaal baar-baar puchhe jaate hain?',ty:'longtext',ph:'Example: Rate kya hai? Collab kaise karein?'},
+        {id:'cre_18',t:'Rate ya pricing ka question kitni baar aata hai?',ty:'single',signal:'frequency',scores:[25,18,10,3],opts:['Har din','Har hafte','Kabhi kabhi','Rarely']},
+        {id:'cre_19',t:'Audience se communication kahan hoti hai?',ty:'single',opts:['Instagram DM','YouTube comments','Discord / Telegram','Email','Other']},
+        {id:'cre_20',t:'Business enquiries aur personal messages alag kar paate ho?',ty:'single',opts:['Haan, clearly','Kabhi kabhi confuse hote hain','Nahi, mix ho jaate hain','Socha nahi']},
+        {id:'cre_21',t:'Kaunse enquiries ko reply dena bhool jaate ho?',ty:'single',signal:'loss',scores:[25,18,10,3],opts:['Brand collabs','Fan messages','Business proposals','Sponsorships','Other']},
+        {id:'cre_22',t:'Content scheduling kaise karte ho?',ty:'single',opts:['Scheduling app','Manual upload','Notebook planning','Random','Other']},
+        {id:'cre_23',t:'Brand deal ke terms discuss karna easy hai?',ty:'single',opts:['Haan easy','Thoda complex','Bahut complex','Kabhi kiye nahi']},
+        {id:'cre_24',t:'Multiple collab ek time par handle kar paate ho?',ty:'single',opts:['Haan smooth','Thoda mushkil','Bahut mushkil','Handle nahi hote']},
+        {id:'cre_25',t:'Payment tracking kaise karte ho?',ty:'single',opts:['Notes','Excel / Sheet','Bank app','Yaad hi rehta hai','Other']},
+        {id:'cre_26',t:'Kya kabhi acha collab miss ho gaya hai?',ty:'single',signal:'loss',scores:[28,15,5,0],opts:['Haan, kaafi baar','Kabhi kabhi','Rarely','Kabhi nahi']},
+        {id:'cre_27',t:'Kaunse kaam rozana repeat hote hain?',ty:'multi',opts:['Same questions ka reply','Rate batana','Collab details','Content ideas','Other']}
+      ],
+      closers: CLOSERS
+    },
+
+    'Other / Custom': {
+      opener: {
+        id:'oth_open', kind:'opener',
+        t:'Aapke business mein, customer se related ya daily operational kaam mein sabse zyada dikkat kis cheez mein aati hai?',
+        ty:'single',
+        opts:[
+          'Enquiries handle karna',
+          'Follow-up karna',
+          'Baar-baar same information dena',
+          'Records maintain karna',
+          'Time manage karna',
+          'Kuch aur'
+        ]
+      },
+      discoveryPool: [
+        {id:'oth_01',t:'Aapke customers ya clients aapse kahan contact karte hain?',ty:'multi',opts:['WhatsApp','Phone Call','Instagram','Email','Walk-in','Other']},
+        {id:'oth_02',t:'Din mein kitni enquiries aati hain?',ty:'single',signal:'frequency',scores:[30,22,15,8,3],opts:['20+','10-20','5-10','1-5','Kam']},
+        {id:'oth_03',t:'Enquiry ka reply kitni der mein karte ho?',ty:'single',opts:['Turant','1 ghante mein','Kuch ghante baad','Agle din','Kabhi nahi']},
+        {id:'oth_04',t:'Sabse zyada kya poocha jata hai?',ty:'longtext',ph:'Jaise: Price, timing, availability...'},
+        {id:'oth_05',t:'Follow-up mein kya dikkat aati hai?',ty:'single',opts:['Yaad nahi rehta','Time nahi milta','Customer reply nahi karta','System nahi hai','Other']},
+        {id:'oth_06',t:'Kaunse kaam rozana repeat hote hain?',ty:'multi',opts:['Same questions ka reply','Price batana','Details dena','Follow-up','Reminders','Other']},
+        {id:'oth_07',t:'Record kaise maintain karte ho?',ty:'single',opts:['Notebook','WhatsApp chat','Excel / Google Sheet','App use karte hain','Yaad hi rehta hai']},
+        {id:'oth_08',t:'Kitne customers chale jaate hain late reply se?',ty:'single',signal:'loss',scores:[28,18,10,3],opts:['Kaafi saare','Kuch','Kam','Koi nahi']},
+        {id:'oth_09',t:'Pricing ya rate ka sawal kitni baar aata hai?',ty:'single',signal:'frequency',scores:[25,18,10,3],opts:['Har enquiry par','Kaafi baar','Kabhi kabhi','Rarely']},
+        {id:'oth_10',t:'Nayi enquiry aane par pehle kya karte ho?',ty:'single',opts:['Turant reply','Notes mein likhte ho','Baad mein dekhte ho','Bhool jaate ho']},
+        {id:'oth_11',t:'Roz kitna time customer handling mein jata hai?',ty:'single',signal:'time',scores:[25,18,10,5],opts:['2 ghante se zyada','1-2 ghante','30-60 minute','15-30 minute']},
+        {id:'oth_12',t:'Kaunsa kaam manual karte ho jo easy ho sakta hai?',ty:'longtext',ph:'Apna jawab likhiye...'},
+        {id:'oth_13',t:'Customer ke saath communication kahan hoti hai?',ty:'single',opts:['WhatsApp','Call','Email','In-person','Other']},
+        {id:'oth_14',t:'Purane customers se contact kaise rakhte ho?',ty:'single',opts:['WhatsApp broadcast','Personal message','Call karke','Kuch nahi karte','Other']},
+        {id:'oth_15',t:'Meeting ya appointment kaise schedule karte ho?',ty:'single',opts:['WhatsApp par','Call par','Calendar app','Notebook','Other']},
+        {id:'oth_16',t:'Sabse zyada time kis kaam mein jaata hai?',ty:'longtext',ph:'Apna jawab likhiye...'},
+        {id:'oth_17',t:'Team mein kitne log enquiry handle karte hain?',ty:'single',opts:['Sirf main','1-2 log','3-5 log','Poori team']},
+        {id:'oth_18',t:'Kaunsa problem sabse zyada pareshan karta hai?',ty:'longtext',ph:'Apna jawab likhiye...'},
+        {id:'oth_19',t:'Kabhi kabhi follow-up bhool jaate ho?',ty:'single',signal:'loss',scores:[28,15,5,0],opts:['Haan, kaafi baar','Kabhi kabhi','Rarely','Kabhi nahi']},
+        {id:'oth_20',t:'Customer details kahan store karte ho?',ty:'single',opts:['Notebook','WhatsApp','Excel / Sheet','App','Yaad hi rehta hai']},
+        {id:'oth_21',t:'Kaam ke liye kaunse tools use karte ho?',ty:'multi',opts:['WhatsApp','Google Sheets','Notion','Trello / Asana','Kuch nahi','Other']},
+        {id:'oth_22',t:'Naye customer ko attract karne ke liye kya karte ho?',ty:'single',opts:['Social media post','WhatsApp status','Referral','Offer lagate hain','Kuch nahi']},
+        {id:'oth_23',t:'Reminders kaise set karte ho?',ty:'single',opts:['Phone reminder','WhatsApp saved msg','Notebook','Yaad se','Kuch nahi']},
+        {id:'oth_24',t:'Payment ya invoice tracking kaise karte ho?',ty:'single',opts:['Excel','Accounting app','Notebook','Bank app','Yaad hi rehta hai']},
+        {id:'oth_25',t:'Kya regular customers ka record hai?',ty:'single',opts:['Haan proper','Thoda bahut','Nahi','Socha nahi']},
+        {id:'oth_26',t:'Communication ke liye best tareeka kya hai?',ty:'single',opts:['WhatsApp','Call','Email','In-person','Other']},
+        {id:'oth_27',t:'Business grow karne mein kya rukavat hai?',ty:'longtext',ph:'Apna jawab likhiye...'}
+      ],
+      closers: CLOSERS
+    }
+  };
+
+  var CATEGORY_OPTIONS = [
+    { value:'Coaching / Institute', icon:'🎓', label:'Coaching / Institute', desc:'Tuition, classes, training' },
+    { value:'Shop / Local Business', icon:'🏪', label:'Shop / Local Business', desc:'Dukaan, store, showroom' },
+    { value:'Freelancer / Service Provider', icon:'💼', label:'Freelancer / Service Provider', desc:'Design, repair, consultancy' },
+    { value:'Creator', icon:'🎬', label:'Creator', desc:'YouTube, Instagram, gamer, artist' },
+    { value:CUSTOM, icon:'✨', label:'Other / Custom', desc:'Kuch aur' }
+  ];
+
+  /* =========================================================================
+     STATE
+     ========================================================================= */
+  function defaultState(){
+    return {
+      category: "",
+      categoryCustom: "",
+      contactChannels: [],
+      contactCustom: "",
+      selectedQuestionIds: [],
+      answers: {},
+      name: "",
+      businessName: "",
+      whatsapp: "",
+      city: "",
+      leadPotential: ""
+    };
+  }
+
+  var state = defaultState();
+  var currentScreen = 'welcome';
+  var questionIndex = 0;
+  var hasSaved = false;
+  var isSubmitting = false;
+  var isTransitioning = false;
+  var lastSubmitAt = 0;
+  var lastServerError = '';
+
+  /* =========================================================================
+     HELPERS
+     ========================================================================= */
+  function $(id){ return document.getElementById(id); }
+  function esc(s){
+    return String(s === null || s === undefined ? '' : s)
+      .replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')
+      .replace(/"/g,'&quot;').replace(/'/g,'&#39;');
+  }
+  function showToast(msg){
+    var t = $('toast');
+    t.textContent = msg;
+    t.classList.add('show');
+    clearTimeout(t._timer);
+    t._timer = setTimeout(function(){ t.classList.remove('show'); }, 2400);
+  }
+  function shuffle(arr){
+    for (var i = arr.length - 1; i > 0; i--){
+      var j = Math.floor(Math.random() * (i + 1));
+      var tmp = arr[i]; arr[i] = arr[j]; arr[j] = tmp;
+    }
+    return arr;
+  }
+  function prefersReducedMotion(){
+    return window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  }
+  function isCustomOption(value){
+    if (!value) return false;
+    var v = String(value).toLowerCase().trim();
+    return v === 'other'
+        || v === 'others'
+        || v === 'other / custom'
+        || v === 'custom'
+        || v === 'kuch aur'
+        || v === 'something else';
+  }
+
+  function getQuestionById(id){
+    var cats = Object.keys(CATEGORY_CONFIG);
+    for (var c = 0; c < cats.length; c++){
+      var cfg = CATEGORY_CONFIG[cats[c]];
+      if (cfg.opener && cfg.opener.id === id) return cfg.opener;
+      for (var i = 0; i < cfg.discoveryPool.length; i++){
+        if (cfg.discoveryPool[i].id === id) return cfg.discoveryPool[i];
+      }
+      for (var j = 0; j < cfg.closers.length; j++){
+        if (cfg.closers[j].id === id) return cfg.closers[j];
+      }
+    }
+    return null;
+  }
+  function getSelectedQuestions(){
+    return (state.selectedQuestionIds || [])
+      .map(function(id){ return getQuestionById(id); })
+      .filter(Boolean);
+  }
+
+  /* =========================================================================
+     QUESTION SELECTION
+     ========================================================================= */
+  function generateQuestionSelection(){
+    var cfg = CATEGORY_CONFIG[state.category];
+    if (!cfg || !cfg.discoveryPool || !cfg.discoveryPool.length){
+      state.selectedQuestionIds = [];
+      state.answers = {};
+      return;
+    }
+    var openerIds = [cfg.opener.id];
+    var poolIds = cfg.discoveryPool.map(function(q){ return q.id; });
+    shuffle(poolIds);
+    var picked = poolIds.slice(0, RANDOM_DISCOVERY_COUNT);
+    var closerIds = cfg.closers.map(function(q){ return q.id; });
+    state.selectedQuestionIds = openerIds.concat(picked).concat(closerIds);
+
+    var newAnswers = {};
+    state.selectedQuestionIds.forEach(function(id){ newAnswers[id] = null; });
+    state.answers = newAnswers;
+  }
+
+  /* =========================================================================
+     STORAGE
+     ========================================================================= */
+  function save(){
+    try {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify({
+        state: state,
+        currentScreen: currentScreen,
+        questionIndex: questionIndex
+      }));
+    } catch(e){}
+  }
+  function loadSaved(){
+    try {
+      var raw = localStorage.getItem(STORAGE_KEY);
+      if (!raw) return false;
+      var data = JSON.parse(raw);
+      if (!data || !data.state) return false;
+      state = Object.assign(defaultState(), data.state);
+      if (typeof data.currentScreen === 'string') currentScreen = data.currentScreen;
+      if (typeof data.questionIndex === 'number'){
+        questionIndex = Math.max(0, Math.min(TOTAL_QUESTIONS - 1, data.questionIndex));
+      }
+      if (currentScreen === 'submitting' || currentScreen === 'done') currentScreen = 'welcome';
+      if (state.category && (!state.selectedQuestionIds || state.selectedQuestionIds.length !== TOTAL_QUESTIONS)){
+        generateQuestionSelection();
+      }
+      return Object.keys(state).some(function(k){
+        var v = state[k];
+        if (Array.isArray(v)) return v.length > 0;
+        if (v && typeof v === 'object') return Object.keys(v).length > 0;
+        return typeof v === 'string' && v.trim() !== '';
+      });
+    } catch(e){ return false; }
+  }
+
+  /* =========================================================================
+     VALIDATION
+     ========================================================================= */
+  function isCategoryStepValid(){
+    if (!state.category) return false;
+    if (state.category === CUSTOM && !(state.categoryCustom || '').trim()) return false;
+    return true;
+  }
+  function isChannelsStepValid(){
+    var arr = state.contactChannels || [];
+    if (!arr.length) return false;
+    if (arr.indexOf(CUSTOM) > -1 && !(state.contactCustom || '').trim()) return false;
+    return true;
+  }
+  function isQuestionAnswered(q){
+    var a = state.answers[q.id];
+    if (q.ty === 'multi'){
+      if (!Array.isArray(a) || !a.length) return false;
+      if (a.some(isCustomOption)){
+        return !!(state.answers[q.id + '_custom'] || '').trim();
+      }
+      return true;
+    }
+    if (q.ty === 'text' || q.ty === 'longtext' || q.ty === 'number'){
+      return typeof a === 'string' && a.trim() !== '';
+    }
+    if (!a) return false;
+    if (isCustomOption(a)){
+      return !!(state.answers[q.id + '_custom'] || '').trim();
+    }
+    return true;
+  }
+  function isCurrentQuestionValid(){
+    var qs = getSelectedQuestions();
+    var q = qs[questionIndex];
+    if (!q) return true;
+    return isQuestionAnswered(q);
+  }
+  function canGoNext(){
+    if (currentScreen === 'category') return isCategoryStepValid();
+    if (currentScreen === 'channels') return isChannelsStepValid();
+    if (currentScreen === 'question') return isCurrentQuestionValid();
+    if (currentScreen === 'contact') return true;
+    return true;
+  }
+
+  /* =========================================================================
+     PROGRESS
+     ========================================================================= */
+  function getStepNumber(){
+    if (currentScreen === 'welcome') return 0;
+    if (currentScreen === 'category') return 1;
+    if (currentScreen === 'channels') return 2;
+    if (currentScreen === 'question') return 3 + questionIndex;
+    if (currentScreen === 'contact') return TOTAL_STEPS;
+    if (currentScreen === 'submitting' || currentScreen === 'error' || currentScreen === 'done') return TOTAL_STEPS;
+    return 1;
+  }
+  function updateProgress(){
+    var wrap = $('progressWrap');
+    if (currentScreen === 'welcome'){ wrap.classList.add('hidden'); return; }
+    wrap.classList.remove('hidden');
+    var step = getStepNumber();
+    var pct, label;
+    if (currentScreen === 'done'){ pct = 100; label = 'Sab ho gaya 🎉'; }
+    else if (currentScreen === 'submitting'){ pct = 100; label = 'Bhej rahe hain…'; }
+    else if (currentScreen === 'error'){ pct = 100; label = 'Submit nahi hua'; }
+    else {
+      pct = Math.round((step / TOTAL_STEPS) * 100);
+      label = 'Step ' + step + ' of ' + TOTAL_STEPS;
+    }
+    $('progressFill').style.width = pct + '%';
+    $('stepLabel').textContent = label;
+    $('progressPct').textContent = pct + '%';
+  }
+
+  /* =========================================================================
+     SCROLL STRATEGY
+     ========================================================================= */
+  function applyScrollStrategy(mode){
+    if (mode === 'none') return;
+    var card = document.querySelector('#screen .card');
+    if (!card) return;
+    var rect = card.getBoundingClientRect();
+    var topOffset = 76;
+    var viewportH = window.innerHeight || document.documentElement.clientHeight;
+
+    if (mode === 'top'){
+      var targetY = window.scrollY + rect.top - topOffset;
+      if (targetY < 0) targetY = 0;
+      if (Math.abs(targetY - window.scrollY) > 6){
+        window.scrollTo({ top: targetY, behavior: 'smooth' });
+      }
+      return;
+    }
+
+    /* 'auto': only scroll if the card isn't comfortably visible */
+    if (rect.top < topOffset || rect.top > viewportH * 0.6){
+      var targetY2 = window.scrollY + rect.top - topOffset;
+      if (targetY2 < 0) targetY2 = 0;
+      window.scrollTo({ top: targetY2, behavior: 'smooth' });
+    }
+  }
+
+  /* =========================================================================
+     SCREEN HTML BUILDERS
+     ========================================================================= */
+  function welcomeHTML(){
+    var resume = '';
+    if (hasSaved){
+      resume =
+        '<div class="resume">' +
+          '<div class="resume-text">' +
+            '<strong>Aapka pichhla form adhura hai</strong>' +
+            '<span>Aap wahan se aage badh sakte hain, jahan chhoda tha.</span>' +
+          '</div>' +
+          '<div class="resume-actions">' +
+            '<button type="button" class="btn btn-primary btn-sm" id="resumeBtn">Pichhla form continue karein</button>' +
+            '<button type="button" class="btn btn-ghost btn-sm" id="freshBtn">Naya form shuru karein</button>' +
+          '</div>' +
+        '</div>';
+    }
+    return '' +
+      '<section class="card">' + resume +
+        '<span class="pill">⏱️ Sirf 2 minute</span>' +
+        '<h1>Bas 2 minute mein apne business ki problem bataiye</h1>' +
+        '<p class="lead">Hum samajhna chahte hain ki aapke daily business kaam mein sabse zyada dikkat kahan aati hai.</p>' +
+        '<button type="button" class="btn btn-primary btn-lg" id="startBtn">Shuru Karein &nbsp;→</button>' +
+        '<div class="trust">' +
+          '<span class="trust-item">✓ 10 chhote sawaal</span>' +
+          '<span class="trust-item">✓ Koi technical baat nahi</span>' +
+          '<span class="trust-item">✓ Aapki details safe</span>' +
+        '</div>' +
+      '</section>';
+  }
+
+  function categoryHTML(){
+    var html = '<div class="options" role="radiogroup" aria-label="Business category">';
+    CATEGORY_OPTIONS.forEach(function(o){
+      var on = state.category === o.value;
+      html +=
+        '<button type="button" class="option' + (on ? ' selected' : '') + '"' +
+          ' data-action="category" data-value="' + esc(o.value) + '"' +
+          ' role="radio" aria-checked="' + (on ? 'true' : 'false') + '">' +
+          '<span class="option-icon" aria-hidden="true">' + o.icon + '</span>' +
+          '<span class="option-text">' +
+            '<span class="option-label">' + esc(o.label) + '</span>' +
+            (o.desc ? '<span class="option-desc">' + esc(o.desc) + '</span>' : '') +
+          '</span>' +
+          '<span class="option-check" aria-hidden="true">✓</span>' +
+        '</button>';
+    });
+    html += '</div>';
+
+    var customOn = state.category === CUSTOM;
+    html +=
+      '<div class="custom-wrap' + (customOn ? ' open' : '') + '" id="customWrap">' +
+        '<input class="input" type="text" data-field="categoryCustom" placeholder="Apna business type likhiye (Jaise: Bakery, Gym, Boutique...)" value="' + esc(state.categoryCustom || '') + '">' +
+      '</div>';
+
+    var valid = isCategoryStepValid();
+    return '' +
+      '<section class="card">' +
+        '<span class="step-badge">Sawaal 1</span>' +
+        '<h2 class="step-title">Aap kis type ka business ya kaam karte hain?</h2>' +
+        '<p class="step-hint">Ek option chuniye — iske hisaab se aapke 10 sawaal taiyaar honge.</p>' +
+        html +
+        '<div class="nav">' +
+          '<button type="button" class="btn btn-ghost" id="backBtn">← Peeche</button>' +
+          '<button type="button" class="btn btn-primary" id="nextBtn"' + (valid ? '' : ' disabled') + '>Aage Badhein →</button>' +
+        '</div>' +
+      '</section>';
+  }
+
+  function channelsHTML(){
+    var opts = [
+      { value:'WhatsApp', icon:'💬', label:'WhatsApp' },
+      { value:'Phone Call', icon:'📞', label:'Phone Call' },
+      { value:'Instagram / Social Media', icon:'📸', label:'Instagram / Social Media' },
+      { value:'Email', icon:'✉️', label:'Email' },
+      { value:'Walk-in', icon:'🚶', label:'Walk-in' },
+      { value:CUSTOM, icon:'✏️', label:'Custom' }
+    ];
+    var sel = state.contactChannels || [];
+    var html = '<div class="options" role="group">';
+    opts.forEach(function(o){
+      var on = sel.indexOf(o.value) > -1;
+      html +=
+        '<button type="button" class="option' + (on ? ' selected' : '') + '"' +
+          ' data-action="channel" data-value="' + esc(o.value) + '"' +
+          ' role="checkbox" aria-checked="' + (on ? 'true' : 'false') + '">' +
+          '<span class="option-icon" aria-hidden="true">' + o.icon + '</span>' +
+          '<span class="option-text"><span class="option-label">' + esc(o.label) + '</span></span>' +
+          '<span class="option-check" aria-hidden="true">✓</span>' +
+        '</button>';
+    });
+    html += '</div>';
+
+    var customOn = sel.indexOf(CUSTOM) > -1;
+    html +=
+      '<div class="custom-wrap' + (customOn ? ' open' : '') + '" id="customWrap">' +
+        '<input class="input" type="text" data-field="contactCustom" placeholder="Jaise: Telegram, Website form..." value="' + esc(state.contactCustom || '') + '">' +
+      '</div>';
+
+    var valid = isChannelsStepValid();
+    return '' +
+      '<section class="card">' +
+        '<span class="step-badge">Sawaal 2</span>' +
+        '<h2 class="step-title">Aapke customers ya students zyada tar aapse kahan contact karte hain?</h2>' +
+        '<p class="step-hint">Ek se zyada option chun sakte hain.</p>' +
+        html +
+        '<div class="nav">' +
+          '<button type="button" class="btn btn-ghost" id="backBtn">← Peeche</button>' +
+          '<button type="button" class="btn btn-primary" id="nextBtn"' + (valid ? '' : ' disabled') + '>Aage Badhein →</button>' +
+        '</div>' +
+      '</section>';
+  }
+
+  function optionIconFor(text){
+    var t = String(text || '').toLowerCase();
+    if (t.indexOf('whatsapp') > -1) return '💬';
+    if (t.indexOf('call') > -1) return '📞';
+    if (t.indexOf('instagram') > -1) return '📸';
+    if (t.indexOf('youtube') > -1) return '▶️';
+    if (t.indexOf('email') > -1) return '✉️';
+    if (t.indexOf('notebook') > -1) return '📒';
+    if (t.indexOf('excel') > -1 || t.indexOf('sheet') > -1) return '📊';
+    if (t.indexOf('app') > -1 || t.indexOf('notion') > -1) return '📱';
+    if (t.indexOf('haan') === 0) return '✅';
+    if (t.indexOf('nahi') === 0) return '❌';
+    if (t.indexOf('shayad') > -1) return '🤷';
+    if (isCustomOption(text)) return '✏️';
+    return '•';
+  }
+
+  function questionHTML(){
+    var qs = getSelectedQuestions();
+    var q = qs[questionIndex];
+    if (!q) return '<section class="card"><p>Loading…</p></section>';
+
+    var badge = '<span class="step-badge q-badge">Question ' + (questionIndex + 1) + ' of ' + TOTAL_QUESTIONS + '</span>';
+    var body = '';
+
+    if (q.ty === 'single' || q.ty === 'multi'){
+      var isMulti = q.ty === 'multi';
+      var current = state.answers[q.id];
+      var sel = isMulti ? (current || []) : current;
+      body += '<div class="options" role="' + (isMulti ? 'group' : 'radiogroup') + '">';
+      (q.opts || []).forEach(function(opt){
+        var on = isMulti ? (sel.indexOf(opt) > -1) : (sel === opt);
+        body +=
+          '<button type="button" class="option' + (on ? ' selected' : '') + '"' +
+            ' data-action="answer" data-value="' + esc(opt) + '"' +
+            ' role="' + (isMulti ? 'checkbox' : 'radio') + '"' +
+            ' aria-checked="' + (on ? 'true' : 'false') + '">' +
+            '<span class="option-icon" aria-hidden="true">' + optionIconFor(opt) + '</span>' +
+            '<span class="option-text"><span class="option-label">' + esc(opt) + '</span></span>' +
+            '<span class="option-check" aria-hidden="true">✓</span>' +
+          '</button>';
+      });
+      body += '</div>';
+
+      /* Inline custom input — visible if a custom option is already selected */
+      var customVal = state.answers[q.id + '_custom'] || '';
+      var hasCustom = isMulti
+        ? (Array.isArray(sel) && sel.some(isCustomOption))
+        : isCustomOption(sel);
+      body +=
+        '<div class="custom-wrap' + (hasCustom ? ' open' : '') + '" id="inlineCustomWrap">' +
+          '<input class="input" type="text" data-field="answer-custom" data-qid="' + esc(q.id) + '"' +
+            ' placeholder="Yahan apna jawab likhiye..." value="' + esc(customVal) + '">' +
+        '</div>';
+    } else if (q.ty === 'longtext'){
+      var val = state.answers[q.id] || '';
+      body += '<div style="margin-top:20px;">' +
+        '<textarea class="textarea" data-field="answer" data-qid="' + esc(q.id) + '" placeholder="' + esc(q.ph || 'Yahan likhiye...') + '">' + esc(val) + '</textarea>' +
+      '</div>';
+    } else if (q.ty === 'text'){
+      var val2 = state.answers[q.id] || '';
+      body += '<div style="margin-top:20px;">' +
+        '<input class="input" type="text" data-field="answer" data-qid="' + esc(q.id) + '" placeholder="' + esc(q.ph || 'Yahan likhiye...') + '" value="' + esc(val2) + '">' +
+      '</div>';
+    } else if (q.ty === 'number'){
+      var val3 = state.answers[q.id] || '';
+      body += '<div style="margin-top:20px;">' +
+        '<input class="input" type="number" inputmode="numeric" data-field="answer" data-qid="' + esc(q.id) + '" placeholder="' + esc(q.ph || 'Number likhiye') + '" value="' + esc(val3) + '">' +
+      '</div>';
+    }
+
+    var valid = isCurrentQuestionValid();
+    return '' +
+      '<section class="card">' +
+        badge +
+        '<h2 class="step-title">' + esc(q.t) + '</h2>' +
+        body +
+        '<div class="nav">' +
+          '<button type="button" class="btn btn-ghost" id="backBtn">← Peeche</button>' +
+          '<button type="button" class="btn btn-primary" id="nextBtn"' + (valid ? '' : ' disabled') + '>Aage Badhein →</button>' +
+        '</div>' +
+      '</section>';
+  }
+
+  function contactHTML(){
+    return '' +
+      '<section class="card">' +
+        '<span class="step-badge">Aakhri Sawaal</span>' +
+        '<h2 class="step-title">Aapki details (optional)</h2>' +
+        '<p class="step-hint">Optional hai — agar aap solution dekhna chahein tabhi details dein.</p>' +
+        '<div class="form-grid">' +
+          '<div class="field"><label for="f_name">Naam</label>' +
+            '<input id="f_name" class="input" type="text" data-field="name" placeholder="Aapka naam" value="' + esc(state.name || '') + '"></div>' +
+          '<div class="field"><label for="f_biz">Business / Institute ka naam</label>' +
+            '<input id="f_biz" class="input" type="text" data-field="businessName" placeholder="Jaise: Sharma Coaching Classes" value="' + esc(state.businessName || '') + '"></div>' +
+          '<div class="field"><label for="f_wa">WhatsApp Number</label>' +
+            '<input id="f_wa" class="input" type="tel" inputmode="tel" data-field="whatsapp" placeholder="10 digit number" value="' + esc(state.whatsapp || '') + '"></div>' +
+          '<div class="field"><label for="f_city">City</label>' +
+            '<input id="f_city" class="input" type="text" data-field="city" placeholder="Jaise: Indore" value="' + esc(state.city || '') + '"></div>' +
+        '</div>' +
+        '<p class="note">Optional hai — agar aap solution dekhna chahein tabhi details dein.</p>' +
+        '<div class="nav">' +
+          '<button type="button" class="btn btn-ghost" id="backBtn">← Peeche</button>' +
+          '<button type="button" class="btn btn-primary" id="nextBtn">Submit Karein</button>' +
+        '</div>' +
+      '</section>';
+  }
+
+  function submittingHTML(){
+    return '<section class="card"><div class="loading-wrap">' +
+      '<div class="spinner" aria-hidden="true"></div>' +
+      '<h2 class="loading-title">Bhej rahe hain…</h2>' +
+      '<p class="loading-sub">Ek second — aapki response bheji ja rahi hai.</p>' +
+      '</div></section>';
+  }
+
+  function errorHTML(){
+    var note = lastServerError ? '<span class="error-note">' + esc(lastServerError) + '</span>' : '';
+    return '<section class="card"><div class="error-wrap">' +
+      '<span class="error-emoji" aria-hidden="true">⚠️</span>' +
+      '<h2>Kuch galat ho gaya</h2>' +
+      '<p>Aapki response submit nahi ho payi.<br>Internet check karein aur dobara try karein.</p>' +
+      note +
+      '</div>' +
+      '<div class="done-actions">' +
+        '<button type="button" class="btn btn-primary" id="retryBtn">Try Again</button>' +
+        '<button type="button" class="btn btn-ghost" id="backFromErrorBtn">← Peeche Jaayein</button>' +
+      '</div></section>';
+  }
+
+  function insightInfo(p){
+    if (p === 'High Potential') return { cls:'high', icon:'🚀', msg:'Lagta hai is problem ko solve karne se aapka kaafi time bach sakta hai.' };
+    if (p === 'Medium Potential') return { cls:'medium', icon:'🛠️', msg:'Is problem ko thoda simplify kiya ja sakta hai.' };
+    return { cls:'low', icon:'👍', msg:'Abhi ye problem manageable lag rahi hai.' };
+  }
+
+  function doneHTML(){
+    var insight = insightInfo(state.leadPotential);
+    var rows = [];
+    rows.push(['Business type', state.category === CUSTOM
+      ? ((state.categoryCustom || '').trim() || '—')
+      : (state.category || '—')]);
+    rows.push(['Contact method', channelsText()]);
+
+    var qs = getSelectedQuestions();
+    qs.slice(0, 2).forEach(function(q, i){
+      rows.push(['Sawaal ' + (i + 1), formatAnswer(q)]);
+    });
+
+    var rowsHTML = rows.map(function(r){
+      return '<div class="sum-row"><span class="sum-k">' + esc(r[0]) + '</span><span class="sum-v">' + esc(r[1]) + '</span></div>';
+    }).join('');
+
+    var contactRows = [];
+    if ((state.name || '').trim()) contactRows.push(['Name', state.name]);
+    if ((state.businessName || '').trim()) contactRows.push(['Business', state.businessName]);
+    if ((state.whatsapp || '').trim()) contactRows.push(['WhatsApp', state.whatsapp]);
+    if ((state.city || '').trim()) contactRows.push(['City', state.city]);
+    var contactHTML = '';
+    if (contactRows.length){
+      contactHTML = '<div class="section-title">Aapki details</div><div class="summary">' +
+        contactRows.map(function(r){
+          return '<div class="sum-row"><span class="sum-k">' + esc(r[0]) + '</span><span class="sum-v">' + esc(r[1]) + '</span></div>';
+        }).join('') + '</div>';
+    }
+
+    return '<section class="card">' +
+      '<div class="done-hero">' +
+        '<span class="done-emoji" aria-hidden="true">🙌</span>' +
+        '<h2>Thank you!</h2>' +
+        '<p>Aapki response successfully mil gayi hai.<br>Aapke ' + qs.length + ' jawab record ho gaye hain.</p>' +
+      '</div>' +
+      '<div class="insight ' + insight.cls + '">' +
+        '<span class="insight-icon" aria-hidden="true">' + insight.icon + '</span>' +
+        '<span>' + esc(insight.msg) + '</span>' +
+      '</div>' +
+      '<div class="section-title">Snapshot</div>' +
+      '<div class="summary">' + rowsHTML + '</div>' +
+      contactHTML +
+      '<div class="done-actions">' +
+        '<button type="button" class="btn btn-primary" id="copyBtn">📋 Answers Copy Karein</button>' +
+        '<button type="button" class="btn btn-ghost" id="restartBtn">Dubara Fill Karein</button>' +
+      '</div>' +
+    '</section>';
+  }
+
+  function buildScreenHTML(){
+    if (currentScreen === 'welcome') return welcomeHTML();
+    if (currentScreen === 'category') return categoryHTML();
+    if (currentScreen === 'channels') return channelsHTML();
+    if (currentScreen === 'question') return questionHTML();
+    if (currentScreen === 'contact') return contactHTML();
+    if (currentScreen === 'submitting') return submittingHTML();
+    if (currentScreen === 'error') return errorHTML();
+    if (currentScreen === 'done') return doneHTML();
+    return welcomeHTML();
+  }
+
+  /* =========================================================================
+     RENDER (low-level, simple fade)
+     ========================================================================= */
+  function renderScreen(opts){
+    opts = opts || {};
+    var animateIn = opts.animateIn || 'fade';
+    var scrollMode = opts.scroll || 'auto';
+
+    var el = $('screen');
+
+    /* Cancel any lingering transition classes */
+    el.classList.remove('exit-forward', 'exit-backward', 'enter-forward', 'enter-backward');
+
+    /* Content */
+    el.innerHTML = buildScreenHTML();
+    updateProgress();
+
+    if (animateIn === 'fade'){
+      el.style.transition = 'none';
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(12px)';
+      void el.offsetWidth;
+      requestAnimationFrame(function(){
+        el.style.transition = 'opacity .4s cubic-bezier(.4,0,.2,1), transform .4s cubic-bezier(.4,0,.2,1)';
+        el.style.opacity = '1';
+        el.style.transform = 'translateY(0)';
+      });
+    } else {
+      el.style.transition = 'none';
+      el.style.opacity = '1';
+      el.style.transform = 'none';
+    }
+
+    requestAnimationFrame(function(){ applyScrollStrategy(scrollMode); });
+  }
+
+  /* =========================================================================
+     NAVIGATE (3D page-turn transition)
+     ========================================================================= */
+  function navigate(direction, mutate){
+    if (isTransitioning) return;
+    var el = $('screen');
+
+    /* Reduced motion: state change only, no 3D */
+    if (prefersReducedMotion()){
+      mutate();
+      save();
+      el.classList.remove('exit-forward', 'exit-backward', 'enter-forward', 'enter-backward');
+      el.style.transition = 'none';
+      el.style.transform = 'none';
+      el.style.opacity = '1';
+      el.innerHTML = buildScreenHTML();
+      updateProgress();
+      requestAnimationFrame(function(){ applyScrollStrategy('auto'); });
+      return;
+    }
+
+    isTransitioning = true;
+
+    var exitClass = direction === 'forward' ? 'exit-forward' : 'exit-backward';
+    var enterClass = direction === 'forward' ? 'enter-forward' : 'enter-backward';
+
+    /* Reset inline styles from any prior fade */
+    el.classList.remove('exit-forward', 'exit-backward', 'enter-forward', 'enter-backward');
+    el.style.transition = 'none';
+    el.style.transform = 'none';
+    el.style.opacity = '1';
+    void el.offsetWidth;
+
+    /* Exit animation */
+    el.classList.add(exitClass);
+
+    setTimeout(function(){
+      el.classList.remove(exitClass);
+
+      mutate();
+      save();
+      el.innerHTML = buildScreenHTML();
+      updateProgress();
+
+      /* Ensure the enter keyframe starts from the top */
+      void el.offsetWidth;
+      el.classList.add(enterClass);
+
+      requestAnimationFrame(function(){ applyScrollStrategy('auto'); });
+
+      setTimeout(function(){
+        el.classList.remove(enterClass);
+        isTransitioning = false;
+      }, ENTER_ANIM_MS);
+    }, EXIT_ANIM_MS);
+  }
+
+  /* =========================================================================
+     PICK HANDLERS (DOM-only, no full re-render)
+     ========================================================================= */
+  function pickCategory(value){
+    var prev = state.category;
+    state.category = value;
+    if (prev !== value){
+      state.categoryCustom = (value === CUSTOM) ? state.categoryCustom : '';
+      generateQuestionSelection();
+      questionIndex = 0;
+    }
+    save();
+
+    /* Update visuals */
+    var btns = document.querySelectorAll('#screen .option[data-action="category"]');
+    for (var i = 0; i < btns.length; i++){
+      var b = btns[i];
+      var v = b.getAttribute('data-value');
+      var on = (v === value);
+      b.classList.toggle('selected', on);
+      b.setAttribute('aria-checked', on ? 'true' : 'false');
+    }
+
+    var wrap = document.getElementById('customWrap');
+    if (wrap) wrap.classList.toggle('open', value === CUSTOM);
+
+    updateNextButtonState();
+  }
+
+  function pickChannel(value){
+    var arr = (state.contactChannels || []).slice();
+    var idx = arr.indexOf(value);
+    var added = (idx === -1);
+    if (added) arr.push(value); else arr.splice(idx, 1);
+    state.contactChannels = arr;
+    save();
+
+    /* Update the clicked button only */
+    var btns = document.querySelectorAll('#screen .option[data-action="channel"]');
+    for (var i = 0; i < btns.length; i++){
+      var b = btns[i];
+      if (b.getAttribute('data-value') !== value) continue;
+      var on = added;
+      b.classList.toggle('selected', on);
+      b.setAttribute('aria-checked', on ? 'true' : 'false');
+    }
+
+    var wrap = document.getElementById('customWrap');
+    if (wrap) wrap.classList.toggle('open', arr.indexOf(CUSTOM) > -1);
+
+    updateNextButtonState();
+  }
+
+  function pickAnswer(btn, value){
+    if (isTransitioning) return;
+    var qs = getSelectedQuestions();
+    var q = qs[questionIndex];
+    if (!q) return;
+
+    var isMulti = q.ty === 'multi';
+
+    if (isMulti){
+      var arr = (state.answers[q.id] || []).slice();
+      var idx = arr.indexOf(value);
+      var added = (idx === -1);
+      if (added) arr.push(value); else arr.splice(idx, 1);
+      state.answers[q.id] = arr;
+      save();
+
+      btn.classList.toggle('selected', added);
+      btn.setAttribute('aria-checked', added ? 'true' : 'false');
+
+      updateInlineCustomInputVisibility(q);
+      updateNextButtonState();
+      return;
+    }
+
+    /* Single-choice */
+    var parent = btn.closest('.options');
+    if (parent){
+      var siblings = parent.querySelectorAll('.option');
+      for (var i = 0; i < siblings.length; i++){
+        siblings[i].classList.remove('selected');
+        siblings[i].setAttribute('aria-checked', 'false');
+      }
+    }
+    btn.classList.add('selected');
+    btn.setAttribute('aria-checked', 'true');
+    state.answers[q.id] = value;
+    save();
+
+    /* Custom option → reveal input, do NOT auto-advance */
+    if (isCustomOption(value)){
+      updateInlineCustomInputVisibility(q);
+      updateNextButtonState();
+      return;
+    }
+
+    /* Auto-advance */
+    isTransitioning = true;
+    setTimeout(function(){
+      isTransitioning = false;
+      advanceAfterSingleChoice();
+    }, AUTO_ADVANCE_DELAY_MS);
+  }
+
+  function advanceAfterSingleChoice(){
+    if (questionIndex < TOTAL_QUESTIONS - 1){
+      navigate('forward', function(){ questionIndex++; });
+    } else {
+      navigate('forward', function(){ currentScreen = 'contact'; });
+    }
+  }
+
+  function updateInlineCustomInputVisibility(q){
+    var wrap = document.getElementById('inlineCustomWrap');
+    if (!wrap) return;
+
+    var isMulti = q.ty === 'multi';
+    var answer = state.answers[q.id];
+    var hasCustom = isMulti
+      ? (Array.isArray(answer) && answer.some(isCustomOption))
+      : isCustomOption(answer);
+
+    if (hasCustom){
+      wrap.classList.add('open');
+      /* Focus without scrolling if the input isn't already focused */
+      var input = wrap.querySelector('input');
+      if (input && document.activeElement !== input){
+        setTimeout(function(){
+          try { input.focus({ preventScroll: true }); } catch(e){ input.focus(); }
+        }, 60);
+      }
+    } else {
+      wrap.classList.remove('open');
+    }
+  }
+
+  function updateNextButtonState(){
+    var btn = $('nextBtn');
+    if (!btn) return;
+    btn.disabled = !canGoNext() || isSubmitting || isTransitioning;
+  }
+
+  /* =========================================================================
+     NAVIGATION (Next / Back)
+     ========================================================================= */
+  function goNext(){
+    if (isSubmitting || isTransitioning) return;
+    if (!canGoNext()) return;
+
+    if (currentScreen === 'category'){
+      navigate('forward', function(){ currentScreen = 'channels'; });
+      return;
+    }
+    if (currentScreen === 'channels'){
+      navigate('forward', function(){ currentScreen = 'question'; questionIndex = 0; });
+      return;
+    }
+    if (currentScreen === 'question'){
+      if (questionIndex < TOTAL_QUESTIONS - 1){
+        navigate('forward', function(){ questionIndex++; });
+      } else {
+        navigate('forward', function(){ currentScreen = 'contact'; });
+      }
+      return;
+    }
+    if (currentScreen === 'contact'){ startSubmission(); return; }
+  }
+
+  function goBack(){
+    if (isSubmitting || isTransitioning) return;
+    if (currentScreen === 'welcome') return;
+    if (currentScreen === 'category'){
+      navigate('backward', function(){ currentScreen = 'welcome'; });
+      return;
+    }
+    if (currentScreen === 'channels'){
+      navigate('backward', function(){ currentScreen = 'category'; });
+      return;
+    }
+    if (currentScreen === 'question'){
+      if (questionIndex > 0){
+        navigate('backward', function(){ questionIndex--; });
+      } else {
+        navigate('backward', function(){ currentScreen = 'channels'; });
+      }
+      return;
+    }
+    if (currentScreen === 'contact'){
+      navigate('backward', function(){ currentScreen = 'question'; questionIndex = TOTAL_QUESTIONS - 1; });
+      return;
+    }
+  }
+
+  function resetAll(goWelcome){
+    if (isTransitioning) return;
+    state = defaultState();
+    currentScreen = goWelcome ? 'welcome' : 'category';
+    questionIndex = 0;
+    hasSaved = false;
+    isSubmitting = false;
+    lastServerError = '';
+    save();
+    renderScreen({ animateIn: 'fade', scroll: 'top' });
+  }
+
+  /* =========================================================================
+     PAYLOAD + SIGNALS
+     ========================================================================= */
+  function channelsText(){
+    var arr = state.contactChannels || [];
+    if (!arr.length) return '—';
+    return arr.map(function(c){
+      if (c === CUSTOM) return (state.contactCustom || '').trim() || 'Custom';
+      return c;
+    }).join(', ');
+  }
+
+  function formatAnswer(q){
+    var a = state.answers[q.id];
+    var extra = (state.answers[q.id + '_custom'] || '').trim();
+    if (q.ty === 'multi'){
+      if (!Array.isArray(a) || !a.length) return '—';
+      var parts = a.map(function(v){
+        if (isCustomOption(v) && extra) return extra;
+        return v;
+      });
+      return parts.join(', ');
+    }
+    if (a === null || a === undefined || a === '') return '—';
+    if (isCustomOption(a) && extra) return extra;
+    return String(a);
+  }
+
+  function buildResponses(){
+    return getSelectedQuestions().map(function(q){
+      var answer = formatAnswer(q);
+      var item = {
+        questionId: q.id,
+        question: q.t,
+        type: q.ty,
+        answer: answer,
+        category: state.category,
+        kind: q.kind || 'discovery'
+      };
+      if (q.signal){
+        item.signal = q.signal;
+        var score = 0;
+        if (q.ty === 'single' && q.scores && q.opts){
+          var idx = q.opts.indexOf(state.answers[q.id]);
+          if (idx > -1) score = q.scores[idx] || 0;
+        } else if (q.ty === 'multi' && q.scores && q.opts){
+          var max = 0;
+          (state.answers[q.id] || []).forEach(function(v){
+            var i = q.opts.indexOf(v);
+            if (i > -1 && q.scores[i] > max) max = q.scores[i];
+          });
+          score = max;
+        }
+        item.signalValue = score;
+      }
+      return item;
+    });
+  }
+
+  function buildSignals(){
+    var responses = buildResponses();
+    var totals = { frequency: 0, time: 0, customerLoss: 0, willingness: 0 };
+    responses.forEach(function(r){
+      if (!r.signal) return;
+      var key = r.signal;
+      if (key === 'loss') key = 'customerLoss';
+      if (key === 'frequency' || key === 'time' || key === 'customerLoss' || key === 'willingness'){
+        if ((r.signalValue || 0) > totals[key]) totals[key] = r.signalValue || 0;
+      }
+    });
+    totals.contactProvided = !!(state.whatsapp && state.whatsapp.trim());
+    return totals;
+  }
+
+  function buildPayload(){
+    var hp = document.getElementById('website_hp');
+    return {
+      category: state.category,
+      categoryCustom: state.categoryCustom,
+      contactChannels: (state.contactChannels || []).slice(),
+      contactCustom: state.contactCustom,
+      responses: buildResponses(),
+      signals: buildSignals(),
+      name: state.name,
+      businessName: state.businessName,
+      whatsapp: state.whatsapp,
+      city: state.city,
+      website_hp: hp ? hp.value : ''
+    };
+  }
+
+  /* =========================================================================
+     SUBMISSION
+     ========================================================================= */
+  function startSubmission(){
+    if (isSubmitting || isTransitioning) return;
+    var now = Date.now();
+    if (now - lastSubmitAt < MIN_SUBMIT_GAP_MS){
+      showToast('Ek second ruk kar dobara try karein');
+      return;
+    }
+    isSubmitting = true;
+    lastServerError = '';
+    currentScreen = 'submitting';
+    renderScreen({ animateIn: 'fade', scroll: 'auto' });
+
+    submitResponse().then(function(result){
+      isSubmitting = false;
+      lastSubmitAt = Date.now();
+      if (result.ok){
+        state.leadPotential = result.leadPotential || 'Medium Potential';
+        currentScreen = 'done';
+        try { localStorage.removeItem(STORAGE_KEY); } catch(e){}
+        hasSaved = false;
+        renderScreen({ animateIn: 'fade', scroll: 'top' });
+      } else {
+        lastServerError = result.message || '';
+        currentScreen = 'error';
+        renderScreen({ animateIn: 'fade', scroll: 'auto' });
+      }
+    });
+  }
+
+  function submitResponse(){
+    if (!GOOGLE_SCRIPT_URL || GOOGLE_SCRIPT_URL.indexOf('http') !== 0){
+      return Promise.resolve({
+        ok: false,
+        message: 'Backend URL not configured. See README.md.'
+      });
+    }
+    return fetch(GOOGLE_SCRIPT_URL, {
+      method: 'POST',
+      headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+      body: JSON.stringify(buildPayload()),
+      redirect: 'follow'
+    })
+    .then(function(res){ return res.text(); })
+    .then(function(text){
+      var data = null;
+      try { data = JSON.parse(text); } catch(e){}
+      if (data && data.success){
+        return { ok: true, leadPotential: data.leadPotential || 'Medium Potential' };
+      }
+      return { ok: false, message: (data && data.message) ? data.message : 'Submission failed.' };
+    })
+    .catch(function(){
+      return { ok: false, message: 'Network error — please internet check karein.' };
+    });
+  }
+
+  /* =========================================================================
+     COPY
+     ========================================================================= */
+  function buildCopyText(){
+    var lines = [];
+    lines.push('Business Type: ' + (state.category === CUSTOM
+      ? ((state.categoryCustom || '').trim() || '—')
+      : (state.category || '—')));
+    lines.push('Contact Method: ' + channelsText());
+    lines.push('');
+    lines.push('QUESTIONS ASKED:');
+    getSelectedQuestions().forEach(function(q, i){
+      lines.push('');
+      lines.push('Q' + (i + 1) + ': ' + q.t);
+      lines.push('A: ' + formatAnswer(q));
+    });
+    lines.push('');
+    lines.push('Name: ' + ((state.name || '').trim() || '—'));
+    lines.push('Business: ' + ((state.businessName || '').trim() || '—'));
+    lines.push('WhatsApp: ' + ((state.whatsapp || '').trim() || '—'));
+    lines.push('City: ' + ((state.city || '').trim() || '—'));
+    return lines.join('\n');
+  }
+
+  function copyAnswers(){
+    var text = buildCopyText();
+    function fallback(){
+      try {
+        var ta = document.createElement('textarea');
+        ta.value = text;
+        ta.setAttribute('readonly','');
+        ta.style.position = 'fixed';
+        ta.style.top = '-1000px';
+        document.body.appendChild(ta);
+        ta.select();
+        ta.setSelectionRange(0, text.length);
+        document.execCommand('copy');
+        document.body.removeChild(ta);
+        showToast('Answers copy ho gaye ✓');
+      } catch(e){ showToast('Copy nahi ho paya'); }
+    }
+    if (navigator.clipboard && navigator.clipboard.writeText){
+      navigator.clipboard.writeText(text).then(function(){ showToast('Answers copy ho gaye ✓'); }).catch(fallback);
+    } else { fallback(); }
+  }
+
+  /* =========================================================================
+     EVENTS
+     ========================================================================= */
+  function onClick(e){
+    var t = e.target;
+    var opt = t.closest ? t.closest('.option') : null;
+    if (opt){
+      var action = opt.getAttribute('data-action');
+      var value = opt.getAttribute('data-value');
+      if (action === 'category'){ pickCategory(value); return; }
+      if (action === 'channel'){ pickChannel(value); return; }
+      if (action === 'answer'){ pickAnswer(opt, value); return; }
+    }
+    if (t.closest('#startBtn')){ resetAll(false); return; }
+    if (t.closest('#resumeBtn')){ currentScreen = 'category'; renderScreen({ animateIn: 'fade', scroll: 'top' }); return; }
+    if (t.closest('#freshBtn')){ resetAll(false); return; }
+    if (t.closest('#nextBtn')){ goNext(); return; }
+    if (t.closest('#backBtn')){ goBack(); return; }
+    if (t.closest('#copyBtn')){ copyAnswers(); return; }
+    if (t.closest('#restartBtn')){ resetAll(true); return; }
+    if (t.closest('#retryBtn')){ startSubmission(); return; }
+    if (t.closest('#backFromErrorBtn')){
+      currentScreen = 'contact';
+      renderScreen({ animateIn: 'fade', scroll: 'auto' });
+      return;
+    }
+  }
+
+  function onInput(e){
+    var el = e.target;
+    if (!el || !el.getAttribute) return;
+    var field = el.getAttribute('data-field');
+    if (!field) return;
+
+    if (field === 'answer'){
+      var qid = el.getAttribute('data-qid');
+      if (qid){
+        state.answers[qid] = el.value;
+        save();
+        updateNextButtonState();
+      }
+      return;
+    }
+
+    if (field === 'answer-custom'){
+      var qid2 = el.getAttribute('data-qid');
+      if (qid2){
+        state.answers[qid2 + '_custom'] = el.value;
+        save();
+        updateNextButtonState();
+      }
+      return;
+    }
+
+    if (field === 'categoryCustom'){
+      state.categoryCustom = el.value;
+    } else if (field === 'contactCustom'){
+      state.contactCustom = el.value;
+    } else {
+      state[field] = el.value;
+    }
+    save();
+    updateNextButtonState();
+  }
+
+  function onKeydown(e){
+    if (e.key !== 'Enter') return;
+    var el = e.target;
+    if (!el || el.tagName !== 'INPUT') return;
+    if (el.type === 'tel' || el.type === 'text'){
+      e.preventDefault();
+      if (currentScreen === 'question' && isCurrentQuestionValid()) goNext();
+      else if (canGoNext() && (currentScreen === 'category' || currentScreen === 'channels')) goNext();
+    }
+  }
+
+  /* =========================================================================
+     INIT
+     ========================================================================= */
+  function init(){
+    hasSaved = loadSaved();
+    var screenEl = $('screen');
+    screenEl.addEventListener('click', onClick);
+    screenEl.addEventListener('input', onInput);
+    screenEl.addEventListener('keydown', onKeydown);
+    renderScreen({ animateIn: 'fade', scroll: 'none' });
+  }
+  if (document.readyState === 'loading'){
+    document.addEventListener('DOMContentLoaded', init);
+  } else { init(); }
+})();
+</script>
+</body>
+</html>
